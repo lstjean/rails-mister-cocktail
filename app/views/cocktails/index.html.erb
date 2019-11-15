@@ -1,18 +1,18 @@
 <h1>Cocktails</h1>
-<ul>
+<!-- <ul>
   <% @cocktails.each do |cocktail| %>
     <li> <%= link_to cocktail.name, cocktail_path(cocktail) %></li>
   <% end %>
 </ul>
+ -->
 
 
 
-
-<div class="cocktail-container d-flex">
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <% @cocktails.each do |cocktail| %>
+<div class="cocktail-container">
+      <div class="container">
+        <div class="row">
+          <% @cocktails.each do |cocktail| %>
+          <div class="col-sx-12 col-sm-6 col-md-3 col-lg-3">
             <div class="card-trip">
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
               <div class="card-trip-infos">
@@ -24,10 +24,10 @@
                 <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
               </div>
             </div>
-        <% end %>
-      </div>
+          </div>
+          <% end %>
+        </div>
     </div>
-</div>
 </div>
 
 
