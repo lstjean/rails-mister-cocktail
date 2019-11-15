@@ -14,13 +14,15 @@ class DosesController < ApplicationController
     else
       render "cocktails/show"
     end
-    raise
+  end
 
+  def destroy
+    @dose.cocktail = @dose.delete
   end
 
   private
 
   def dose_params
-    params.require(:dose).permit(:description, :ingredient)
+    params.require(:dose).permit(:description, :ingredient_id)
   end
 end

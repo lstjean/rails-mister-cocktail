@@ -1,16 +1,29 @@
 <h1><%= @cocktail.name %></h1>
 
-<ul>
-  <%= @cocktail.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
-  <% end %>
-</ul>
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ingredient</th>
+      <th scope="col">Amount</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @cocktail.doses.each do |dose| %>
+        <tr>
+          <td><%= dose.ingredient.name %></td>
+          <td><%= dose.description %></td>
+          <td><%= link_to "Remove", cocktail_dose_path(:cocktail_id), method: :delete %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
 
 
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :ingredient, collection: Ingredient.all %>
-  <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.input :description %>
     <%= f.submit "Add Ingredient" %>
 <% end %>
 
