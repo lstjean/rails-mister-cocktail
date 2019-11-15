@@ -14,10 +14,13 @@ class DosesController < ApplicationController
     else
       render "cocktails/show"
     end
+
   end
 
   def destroy
-    @dose.cocktail = @dose.delete
+    @dose = Dose.find(params[:id])
+    @dose.destroy
+    redirect_to cocktail_path(@dose.cocktail)
   end
 
   private

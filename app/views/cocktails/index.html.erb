@@ -5,6 +5,32 @@
   <% end %>
 </ul>
 
+
+
+
+<div class="cocktail-container d-flex">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <% @cocktails.each do |cocktail| %>
+            <div class="card-trip">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+                  <!-- <p>Short description here!</p> -->
+                </div>
+                <!-- <h2 class="card-trip-pricing">£99.99</h2> -->
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+</div>
+</div>
+
+
 <%= link_to "+ Add a new cocktail!", new_cocktail_path %>
 
 
